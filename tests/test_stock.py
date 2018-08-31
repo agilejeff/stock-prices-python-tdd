@@ -7,9 +7,13 @@ class TestGetPrice(unittest.TestCase):
         self.assertIsNotNone(stocks.equitySymbol())
 
     def test_equitySymbol_uses_provided_code(self):
-        self.assertEqual("EON_X", stocks.equitySymbol("EON_X"))
+        self.assertEqual('EON_X', stocks.equitySymbol("EON_X"))
 
-        
+
+
+
+
+
 
 
 
