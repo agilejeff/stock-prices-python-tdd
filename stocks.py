@@ -10,7 +10,7 @@ def equitySymbol(targetSymbol="WAC_X"):
 
 
 
-def priceLookup(symbol="WAC_X"):
+def getPriceWeb(symbol="WAC_X"):
     price = 2
     return price
 

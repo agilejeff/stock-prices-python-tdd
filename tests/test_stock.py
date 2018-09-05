@@ -13,8 +13,13 @@ class TestGetPrice(unittest.TestCase):
         self.assertEqual('WAC_X', stocks.equitySymbol())
 
     def test_price_is_number_greater0(self):
-        price = stocks.priceLookup("EON_X")
+        price = stocks.getRecentPriceWeb("EON_X")
         self.assertGreater(price, 0)
+
+    def test_price_lookup_known(self):
+        price = stocks.getPriceWeb("EON_X")
+
+
 
 
 
