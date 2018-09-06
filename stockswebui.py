@@ -12,20 +12,21 @@ class GetStockSymbol(object):
             <body>
                 <form method="get" action="price">
                     <input type="text" value="EON_X" name="symbol" />
+                    <input type="date" value="2018-09-03" name="date">
                     <button type="submit">Lookup Price</button>
                 </form>
             </body>
         </html>"""
 
     @cherrypy.expose
-    def price(self, symbol="WAC_X"):
-        data_price = stocks.getPriceWeb(symbol)
-        return "Closing Price for " + symbol + " on Sep 3 was " + str(data_price)
+    def price(self, symbol="WAC_X", date="2018-09-03"):
+        data_price = stocks.getPriceWeb(symbol, date)
+        return "Closing Price for " + symbol + " on " + date + " was " + str(data_price)
 
     @cherrypy.expose
     def shutdown(self):
-        return "shutting down web app"
         cherrypy.engine.exit()
+        return "shutting down web app"
         exit(9)
 
 
