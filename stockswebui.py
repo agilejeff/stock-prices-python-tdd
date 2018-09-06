@@ -4,6 +4,7 @@ import cherrypy
 import stocks
 
 class GetStockSymbol(object):
+    cherrypy.config.update({'server.socket_port': 8081})
     @cherrypy.expose
     def index(self):
         return """<html>
@@ -21,7 +22,19 @@ class GetStockSymbol(object):
         data_price = stocks.getPriceWeb(symbol)
         return "Closing Price for " + symbol + " on Sep 3 was " + str(data_price)
 
+    @cherrypy.expose
+    def shutdown(self):
+        return "shutting down web app"
+        cherrypy.engine.exit()
+        exit(9)
+
 
 def launchWebsite():
     cherrypy.quickstart(GetStockSymbol())
     return True
+
+print(__name__)
+
+if __name__ == '__main__':
+    cherrypy.quickstart(GetStockSymbol())
+
