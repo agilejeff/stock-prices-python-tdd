@@ -4,7 +4,7 @@ import cherrypy
 import stocks
 
 class GetStockSymbol(object):
-    cherrypy.config.update({'server.socket_port': 8081})
+    cherrypy.config.update({'server.socket_host': '0.0.0.0'})
     @cherrypy.expose
     def index(self):
         return """<html>
